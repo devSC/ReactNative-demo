@@ -1,0 +1,20 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, "8.0"
+# Uncomment this line if you"re using Swift
+# use_frameworks!
+platform :ios, "8.0"
+inhibit_all_warnings! # this will disable all the warnings for all pods
+
+target "NativeDemo" do
+    pod "AFNetworking",         "3.1.0"
+    # 但是如果你的结构不同，那你就要根据实际路径修改下面的`:path`
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket',
+    ]
+    # 如果你的RN版本 >= 0.42.0，请加入下面这行
+    pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+    
+end
